@@ -1,0 +1,11 @@
+package com.rubypaper.domain;
+
+import lombok.Getter;
+
+@Getter
+public class BoardVO {
+	private int seq;
+//	private String title;
+//	private String write;
+//	private String content;
+}
