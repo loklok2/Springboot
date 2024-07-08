@@ -22,9 +22,16 @@ public class MemberService{
     	return memberDAO.getMemberById(id);
     }
     
-    public MemberDTO addMember(MemberDTO dto) {
+    public int addMember(MemberDTO dto) {
     	return memberDAO.addMember(dto);
     }
 	
+    public int upDateMember(MemberDTO dto) {
+    	return memberDAO.upDateMember(dto);
+    }
+    
+    public int deleteMember(MemberDTO dto) {
+    	return memberDAO.deleteMember(dto);
+    }
 
 }
