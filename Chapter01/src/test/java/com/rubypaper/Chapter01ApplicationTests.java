@@ -7,7 +7,12 @@ import org.springframework.boot.test.context.SpringBootTest;
 class Chapter01ApplicationTests {
 
 	@Test
-	void contextLoads() {
+	void contextLoads1() {
+		System.out.println("테스트1");
+	}
+	@Test
+	void contextLoads2() {
+		System.out.println("테스트1");
 	}
 
 }
