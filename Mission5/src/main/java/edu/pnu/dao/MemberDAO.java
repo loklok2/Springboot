@@ -67,7 +67,7 @@ public class MemberDAO {
         } catch (SQLException e) {
             e.printStackTrace();
         }
-        logDAO.addLog("GET", query, s);
+        logDAO.addLog("GET", query, (s == true) ? true : false);
         return list;
     }
     public MemberDTO getMemberById(Integer id) {
@@ -173,7 +173,7 @@ public class MemberDAO {
     		query = psmt.toString().replace("com.mysql.cj.jdbc.ClientPreparedStatement: ", "");
     	} catch (Exception e) {
     		e.printStackTrace();
-    		logDAO.addLog("DELETE", query, s);
+    		logDAO.addLog("DELETE", query, (s == true) ? true : false);
     	}finally {
     		try {
 				psmt.close();

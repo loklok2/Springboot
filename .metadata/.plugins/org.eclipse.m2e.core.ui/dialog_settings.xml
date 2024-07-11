@@ -20,6 +20,7 @@
 	</section>
 	<section name="MavenProjectWizardLocationPage">
 		<list key="location">
+			<item value="C:\workspace-sts4\Chapter04"/>
 			<item value="C:\workspace-sts4\board-spring-boot-starter\src\main\java\com\rubypaper\jdbc\config\BoardAutoConfiguration.java"/>
 			<item value="C:\workspace-sts4\Chapter02"/>
 		</list>
@@ -64,10 +65,12 @@
 	</section>
 	<section name="MavenProjectWizardArtifactPage">
 		<list key="groupId">
+			<item value="edu.pnu"/>
 		</list>
 		<list key="name">
 		</list>
 		<list key="artifactId">
+			<item value="edu.pnu"/>
 		</list>
 		<list key="projectNameTemplate">
 			<item value="[artifactId]"/>

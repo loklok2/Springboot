@@ -11,7 +11,7 @@ import java.util.List;
 import org.springframework.stereotype.Repository;
 
 import edu.pnu.domain.LogDTO;
-import lombok.RequiredArgsConstructor;
+
 
 @Repository
 public class LogDAO {
