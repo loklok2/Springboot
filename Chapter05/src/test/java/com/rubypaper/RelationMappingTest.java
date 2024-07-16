@@ -4,6 +4,9 @@ import java.util.Date;
 import java.util.List;
 
 import org.junit.jupiter.api.Test;
+import org.junit.jupiter.api.TestMethodOrder;
+import org.junit.jupiter.api.MethodOrderer.OrderAnnotation;
+import org.junit.jupiter.api.Order;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
 
@@ -12,15 +15,16 @@ import com.rubypaper.domain.Member;
 import com.rubypaper.persistence.MemberRepository;
 
 @SpringBootTest
+@TestMethodOrder(OrderAnnotation.class)
 public class RelationMappingTest {
 	
 	@Autowired
 	private MemberRepository memberRepo;
 	
 	@Test
+	@Order(1)
 	public void testTwoWayMapping() {
-		Member member = memberRepo.findById("member1").get();
-		
+		Member member = memberRepo.findById("member2").get();
 		System.out.println("===========================");
 		System.out.println(member.getName() + "가(이) 저장한 게시글 목록");
 		System.out.println("===========================");
@@ -34,6 +38,7 @@ public class RelationMappingTest {
 	
 	
 	@Test
+	@Order(2)
 	public void testManyToOneInsert() {
 		Member m1 = Member.builder()
 				.id("member1")
@@ -74,6 +79,7 @@ public class RelationMappingTest {
 	}
 	
 	@Test
+	@Order(3)
 	public void testCascadeDelete() {
 		memberRepo.deleteById("member2");
 	}

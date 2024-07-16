@@ -38,4 +38,9 @@ public class Board {
 	@ManyToOne //Many는 나 자신 board, one은 Member
 	@JoinColumn(name="MEMBER_ID") //Member 테이블의 id 필드와 연결될 필드명
 	private Member member; //왜래키
+	
+	public void setMember(Member member) {
+		this.member = member;
+		member.getBoardList().add(this);
+	}
 }
