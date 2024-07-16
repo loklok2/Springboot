@@ -30,16 +30,16 @@ public class QueryAnnotationTest {
 		}
 	}
 	
-	@Test
-	@Order(2)
-	public void testQuerryAnnotationTest2() {
-		List<Object[] > boardList = boardRepo.queryAnnotationTest2("title10");
-		System.out.println("-->  testQuerryAnnotationTest2");
-		for(Object[] row : boardList) {
-			System.out.println(Arrays.toString(row));
-		}
-	}
-	
+//	@Test
+//	@Order(2)
+//	public void testQuerryAnnotationTest2() {
+//		List<Object[] > boardList = boardRepo.queryAnnotationTest2("title10");
+//		System.out.println("-->  testQuerryAnnotationTest2");
+//		for(Object[] row : boardList) {
+//			System.out.println(Arrays.toString(row));
+//		}
+//	}
+//	
 	
 //	@Test
 //	public void testQuerryAnnotationTest3() {
