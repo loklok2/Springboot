@@ -11,6 +11,10 @@ import org.springframework.web.bind.annotation.PostMapping;
 import com.rubypaper.domain.Board;
 import com.rubypaper.service.BoardService;
 import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.bind.annotation.RequestBody;
+import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestMethod;
+
 
 
 
@@ -39,7 +43,8 @@ public class BoardController {
 	@Autowired
 	private BoardService boardService;
 	
-	@GetMapping("/getBoardList")
+	@RequestMapping(value = "/getBoardList", method = {RequestMethod.GET, RequestMethod.POST})
+//	@GetMapping("/getBoardList")
 	public String getBoardList(Model model, Board board) {
 		List<Board> boardList = boardService.getBoardList(board);
 		
@@ -66,6 +71,23 @@ public class BoardController {
 		model.addAttribute("board", boardService.getBoard(board));
 		return "getBoard";
 	}
+	
+	//게시글 수정하기
+	@PostMapping("/updateBoard")
+	public String updateBoard(Board board) {
+		boardService.updateBoard(board);
+		return "forward:getBoardList";
+//		return "redirect:getBoardList";
+	}
+	
+	
+	//게시글 삭제하기
+	@GetMapping("/deleteBoard")
+	public String deleteBoard(Board board) {
+		boardService.deleteBoard(board);
+		return "forward:getBoardList";
+	}
+	
 	
 	
 	

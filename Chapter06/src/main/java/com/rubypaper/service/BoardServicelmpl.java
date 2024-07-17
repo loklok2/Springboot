@@ -32,11 +32,15 @@ public class BoardServicelmpl implements BoardService {
 
 	@Override
 	public void updateBoard(Board board) {
-
+		Board findBoard = boardrepo.findById(board.getSeq()).get();
+		
+		findBoard.setTitle(board.getTitle());
+		findBoard.setContent(board.getContent());
+		boardrepo.save(findBoard);
 	}
 
 	@Override
 	public void deleteBoard(Board board) {
-
+		boardrepo.deleteById(board.getSeq());
 	}
 }

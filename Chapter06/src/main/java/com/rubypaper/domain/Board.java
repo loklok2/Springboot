@@ -37,9 +37,10 @@ public class Board {
 	private String content;
 	
 //	@Temporal(value=TemporalType.TIMESTAMP)
-	@Column(insertable = false, updatable = false, columnDefinition = "date default CURRENT_TIMESTAMP")
+	@Column(insertable = false, updatable = false, columnDefinition = "date default Current_date")
 	private Date createDate;
 	
-	@Column(insertable = false, updatable = false, columnDefinition = "number default 0")
+//	@Column(insertable = false, updatable = false, columnDefinition = "number default 0")
+	@Column(insertable = false, columnDefinition = "long default 0")
 	private Long cnt;
 }

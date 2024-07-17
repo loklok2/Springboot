@@ -29,17 +29,26 @@
 	</tr>
 	
 	<tr>
-		<td bgcolor="orange" align="center">
-		<input type="submit" value="새글 등록" /></td>
+		<td bgcolor="orange">등록일</td>
+		<td align="left"><fmt:formatDate value="${board.createDate }" pattern="yyyy-MM-dd"></fmt:formatDate></td>
+	</tr>
+	
+	<tr>
+		<td bgcolor="orange">조회수</td>
+		<td align="left">${board.cnt }</td>
 	</tr>
 	
 	<tr>
 		<td colspan="2" align="center">
-		<input type="submit" value="새글 등록" /></td>
+		<input type="submit" value="글 수정" />
+		</td>
 	</tr>
 </table>
 </form>
 <hr>
+<a href="insertBoardView">글등록</a>&nbsp;&nbsp;&nbsp;
+<a href="deleteBoard?seq=${board.seq }">글삭제</a>&nbsp;&nbsp;&nbsp;
+<a href="getBoardList">글목록</a>
 </center>
 </body>
 </html>
