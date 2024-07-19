@@ -10,5 +10,14 @@
 	<a th:href="@{/member}">Member 페이지로 이동</a></br>
 	<a th:href="@{/manager}">Manager 페이지로 이동</a></br>
 	<a th:href="@{/admin}">Admin 페이지로 이동</a>
+	<h4>1.사용자에게 요청을 받고</h4>
+	<h4>2.Autentication필터에서 가로채고</h4>
+	<h4>3.가로챈 정보로 UserPasswordAutenticationfilter에서 객체 생성해서 돌려주고</h4>
+	<h4>4.AutenticationManger한데 객체 전달하면서 ProviderManger가 등록된 인증요구하면</h4>
+	<h4>5.UserDetailService가 DB뒤져서 정보찾아서</h4>
+	<h4>6.UserDetail객체로 만들어서 Autenticationfilter에게 반환하고</h4>
+	<h4>7.Autentication필터에서 새로운 객체로 세션영역에 전달</h4>
+	<h4>8.세션에서는 인가,인증된 정보를 저장 및 관리하고 요청된 정보 반환</h4>
+	<h4>9. 세션에서 반환된 객체는 다시 필터를 통과해서 관련된 객체로 응답</h4>
 </body>
 </html>

@@ -4,7 +4,7 @@ import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;
 
 @Controller //@Controller에서는 리턴이 'View'의 이름을 리턴으로 호출 ex)member.html
-public class SecurityConttoller {
+public class SecurityController {
 	
 	@GetMapping({"/","/index"})
 	public String index() {

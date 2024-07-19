@@ -1,17 +1,32 @@
 package edu.pnu.controller;
 
-import org.springframework.context.annotation.Bean;
-import org.springframework.context.annotation.Configuration;
-import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
-import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Controller;
+import org.springframework.web.bind.annotation.GetMapping;
 
 
 @Controller
-@Configuration
 public class SecurityController {
-	@Bean
-	PasswordEncoder passwordEncoder() {
-		return new BCryptPasswordEncoder();
+	
+	@GetMapping({"/","/index"})
+	public String index() {
+		return "index";
 	}
+	
+	@GetMapping("/member")
+	public void member() {
+		System.out.println("Member 요청");
+	}
+	
+	@GetMapping("/manager")
+	public void manager() {
+		System.out.println("Manager 요청");
+	}
+	
+	@GetMapping("/admin")
+	public void admin() {
+		System.out.println("Admin 요청");
+	}
+	
+	
+	
 }

@@ -1,0 +1,32 @@
+package edu.pnu.controller;
+
+import org.springframework.stereotype.Controller;
+import org.springframework.web.bind.annotation.GetMapping;
+
+
+
+@Controller
+public class SecurityController {
+	
+	@GetMapping({"/", "/index"})
+	public String index() {
+		return "index";
+	}
+	
+	@GetMapping("/member")
+	public void member() {
+		System.out.println("Member");
+	}
+	@GetMapping("/manager")
+	public void manager() {
+		System.out.println("manager");
+	}
+	@GetMapping("/admin")
+	public void admin() {
+		System.out.println("admin");
+	}
+	
+
+	
+	
+}

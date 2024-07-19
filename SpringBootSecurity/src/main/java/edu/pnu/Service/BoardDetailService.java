@@ -22,7 +22,8 @@ public class BoardDetailService implements UserDetailsService {
 		Member member = memRepo.findById(username).orElseThrow(()->new UsernameNotFoundException("Not Found"));
 		System.out.println(member);
 		
-		return new User(member.getUsername(), member.getPassword(), AuthorityUtils.createAuthorityList(member.getRole().toString()));
+		return new User(member.getUsername(), member.getPassword(), 
+				AuthorityUtils.createAuthorityList(member.getRole().toString()));
 	}
 	
 
