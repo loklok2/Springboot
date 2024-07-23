@@ -9,13 +9,14 @@ import org.springframework.security.core.userdetails.UsernameNotFoundException;
 import org.springframework.stereotype.Service;
 
 import edu.pnu.domain.Member;
-import edu.pnu.persistence.MemberRepositoty;
+import edu.pnu.persistence.MemberRepository;
+
 
 @Service
 public class SecurityUserDetailsService implements UserDetailsService{
 	
 	@Autowired
-	private MemberRepositoty memRepo;
+	private MemberRepository memRepo;
 
 	@Override
 	public UserDetails loadUserByUsername(String username) throws UsernameNotFoundException {

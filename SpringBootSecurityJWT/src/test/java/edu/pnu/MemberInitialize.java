@@ -8,14 +8,15 @@ import org.springframework.security.crypto.password.PasswordEncoder;
 
 import edu.pnu.domain.Member;
 import edu.pnu.domain.Role;
-import edu.pnu.persistence.MemberRepositoty;
+import edu.pnu.persistence.MemberRepository;
+
 
 
 @SpringBootTest
 public class MemberInitialize {
 	
 	@Autowired
-	MemberRepositoty memRepo;
+	MemberRepository memRepo;
 	
 	PasswordEncoder encoder = new BCryptPasswordEncoder();
 	

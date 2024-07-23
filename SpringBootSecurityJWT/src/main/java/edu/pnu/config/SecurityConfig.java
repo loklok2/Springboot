@@ -10,8 +10,11 @@ import org.springframework.security.config.http.SessionCreationPolicy;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.security.web.SecurityFilterChain;
+import org.springframework.security.web.access.intercept.AuthorizationFilter;
 
-import edu.pnu.filter.JWTAuthenticationFilter;
+import edu.pnu.config.filter.JWTAuthenticationFilter;
+import edu.pnu.config.filter.JWTAuthorizatioFilter;
+import edu.pnu.persistence.MemberRepository;
 
 @Configuration
 @EnableWebSecurity
@@ -22,6 +25,8 @@ public class SecurityConfig {
 		return new BCryptPasswordEncoder();
 	}
 	
+	@Autowired
+	private MemberRepository memberRepository;
 	
 	@Autowired
 	private AuthenticationConfiguration authenticationConfiguration;
@@ -45,6 +50,9 @@ public class SecurityConfig {
 		
 		//스프링 시큐리티가 등록한 필터체인의 뒤에 작성한 필터를 추가한다.
 		http.addFilter(new JWTAuthenticationFilter(authenticationConfiguration.getAuthenticationManager()));
+		
+		//addFilterBefore 스프링 시큐리티가 등록한 필터들 중에서 AuthentizationFilter 앞에 앞에서 작성한 필터를 삽입한다
+		http.addFilterBefore(new JWTAuthorizatioFilter(memberRepository), AuthorizationFilter.class);
 		
 		return http.build();
 	}
