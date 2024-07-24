@@ -35,23 +35,22 @@ public class SecurityConfig {
 		http.csrf(cf->cf.disable()); //csrf 보호 비활성화(사이트간 요청 위조) 지금은 사용하지 않아서 disable
 		
 		
-//		http.formLogin(form-> form.loginPage("/login").defaultSuccessUrl("/loginSuccess", true));
+		http.formLogin(form-> form.loginPage("/login").defaultSuccessUrl("/loginSuccess", true));
 		
-//		http.logout(logout->logout
-//				.invalidateHttpSession(true)
-//				.deleteCookies("JSESSIONID")
-//				.logoutSuccessUrl("/login"));
+		http.logout(logout->logout
+			.invalidateHttpSession(true)
+				.deleteCookies("JSESSIONID")
+				.logoutSuccessUrl("/login"));
 		
 		http.oauth2Login(oauth2->oauth2
 				.loginPage("/login")
-				.defaultSuccessUrl("/loginSuccess", true));
+				.successHandler(successHandler));
+//				.defaultSuccessUrl("/loginSuccess", true));
 		
 		http.headers(hr->hr.frameOptions(fo->fo.disable()));
 		
-		http.sessionManagement(sm->sm.sessionCreationPolicy(SessionCreationPolicy.STATELESS));
-		
-		
-		http.oauth2Login(oauth2->oauth2.successHandler(successHandler));
+//		http.sessionManagement(sm->sm.sessionCreationPolicy(SessionCreationPolicy.STATELESS));
+//		http.oauth2Login(oauth2->oauth2.successHandler(successHandler));
 		
 		return http.build();
 	}

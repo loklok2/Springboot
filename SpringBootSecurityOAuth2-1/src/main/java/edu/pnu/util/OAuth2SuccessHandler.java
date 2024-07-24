@@ -46,7 +46,8 @@ public class OAuth2SuccessHandler extends SimpleUrlAuthenticationSuccessHandler 
 				.enabled(true)
 				.build());
 		String jwtToken = JWTUtil.getJWT(username);
-		response.addHeader(HttpHeaders.AUTHORIZATION, jwtToken);
+		response.addHeader(HttpHeaders.AUTHORIZATION, jwtToken); ////토큰을 생성해서 보내주고
+		response.sendRedirect("/loginSuccess");				// 로그인 성공을  핸들러에서 바로 리다이렉트하기
 		
 	}
 }
