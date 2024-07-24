@@ -57,7 +57,7 @@ public class JWTAuthenticationFilter extends UsernamePasswordAuthenticationFilte
 	@Override
 	public void successfulAuthentication(HttpServletRequest request, HttpServletResponse response, FilterChain chain, Authentication authResult) throws IOException, ServletException {
 		
-		//자격 증명이 성고하염 loadUserByUsername에서 만든 객체가 authResult에 담겨져 있음
+		//자격 증명이 성공하면 loadUserByUsername에서 만든 객체가 authResult에 담겨져 있음
 		User user = (User)authResult.getPrincipal();
 		
 		// username으로 JWT를 생성해서 Response Header - Authorization에 담아서 리턴

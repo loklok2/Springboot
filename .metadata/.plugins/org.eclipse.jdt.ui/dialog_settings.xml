@@ -113,7 +113,7 @@
 		<item key="create_package_info_java" value="false"/>
 	</section>
 	<section name="NewAnnotationCreationWizard.dialogBounds">
-		<item key="DIALOG_X_ORIGIN" value="642"/>
+		<item key="DIALOG_X_ORIGIN" value="216"/>
 		<item key="DIALOG_Y_ORIGIN" value="66"/>
 		<item key="DIALOG_WIDTH" value="641"/>
 		<item key="DIALOG_HEIGHT" value="598"/>

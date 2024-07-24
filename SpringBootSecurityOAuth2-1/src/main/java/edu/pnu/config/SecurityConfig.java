@@ -21,7 +21,7 @@ public class SecurityConfig {
 //		return new BCryptPasswordEncoder();
 //	}
 	
-	private final OAuth2SuccessHandler successHandler;	
+	private final OAuth2SuccessHandler successHandler;	// 로그인에 성공하면 임의의 사용자 생성해서, DB에 저장하고 JWT토큰을 만들어서 응답 헤더에 설정
 	
 	@Bean
 	SecurityFilterChain securityFilterChain(HttpSecurity http) throws Exception{
@@ -44,7 +44,7 @@ public class SecurityConfig {
 		
 		http.oauth2Login(oauth2->oauth2
 				.loginPage("/login")
-				.successHandler(successHandler));
+				.successHandler(successHandler)); // Oauth2 로그인이 성공하면 successHandler, defaultSuccessUrl 둘다 설정되있으면 successHandler 가 우선순위
 //				.defaultSuccessUrl("/loginSuccess", true));
 		
 		http.headers(hr->hr.frameOptions(fo->fo.disable()));

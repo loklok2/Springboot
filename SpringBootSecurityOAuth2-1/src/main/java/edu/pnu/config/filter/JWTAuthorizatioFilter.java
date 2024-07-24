@@ -22,7 +22,7 @@ import jakarta.servlet.http.HttpServletResponse;
 import lombok.RequiredArgsConstructor;
 
 @RequiredArgsConstructor
-//OncePerRequestFilter를 상속받게 되면 하나늬 요청에 대해서 단 한번만 필터를 거치게 됨
+//OncePerRequestFilter를 상속받게 되면 하나의 요청에 대해서 단 한번만 필터를 거치게 됨
 // 예를 들어 forwarding 되어 다른 페이지로 이동하게 되더라도 다시 이 필터를 거치지 않음
 public class JWTAuthorizatioFilter extends OncePerRequestFilter { //httpservlet필터
 

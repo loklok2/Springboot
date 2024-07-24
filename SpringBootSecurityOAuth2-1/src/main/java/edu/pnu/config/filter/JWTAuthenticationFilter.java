@@ -43,7 +43,7 @@ public class JWTAuthenticationFilter extends UsernamePasswordAuthenticationFilte
 			//security에게 자격 증명 요청에 필요한 객체 생성
 			Authentication authToken = new UsernamePasswordAuthenticationToken(member.getUsername(), member.getPassword());
 			
-			//인증 진행 -> UserdetailsService의 loadUserByUsername에서 DB로부터 ㅅ용자 정보를 읽어온 뒤
+			//인증 진행 -> UserdetailsService의 loadUserByUsername에서 DB로부터 사용자 정보를 읽어온 뒤
 			// 사용자 입력 정보와 비교한 뒤 자격 증명에 성공하면 Authentication객체를 만들어서 리턴
 			
 			return authenticationManager.authenticate(authToken);
@@ -57,7 +57,7 @@ public class JWTAuthenticationFilter extends UsernamePasswordAuthenticationFilte
 	@Override
 	public void successfulAuthentication(HttpServletRequest request, HttpServletResponse response, FilterChain chain, Authentication authResult) throws IOException, ServletException {
 		
-		//자격 증명이 성고하염 loadUserByUsername에서 만든 객체가 authResult에 담겨져 있음
+		//자격 증명이 성공하면 loadUserByUsername에서 만든 객체가 authResult에 담겨져 있음
 		User user = (User)authResult.getPrincipal();
 		
 		// username으로 JWT를 생성해서 Response Header - Authorization에 담아서 리턴
